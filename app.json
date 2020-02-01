@@ -1,0 +1,14 @@
+{
+  "name": "Jackpotter",
+  "description": "",
+  "keywords": [],
+  "website": "https://jackpotter.herokuapp.com/",
+  "repository": "https://github.com/simify/react",
+  "scripts": {},
+  "env": {},
+  "buildpacks": [
+    {
+      "url": "https://github.com/mars/create-react-app-buildpack"
+    }
+  ]
+}
