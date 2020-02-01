@@ -1,9 +1,0 @@
-# Project
-node_modules
-build
-.git
-.gitignore
-
-# Docker
-Dockerfile
-docker-compose.yml
