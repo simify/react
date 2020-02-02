@@ -18,20 +18,23 @@ const SimpleMutation = () => {
   const [betName, setBetName] = useState("");
 
   return (
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        addBet({ variables: { name: betName } });
-        setBetName("");
-      }}
-    >
-      <input
-        placeholder="Add bet"
-        value={betName}
-        onChange={e => setBetName(e.target.value)}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <h2>GraphQL demo</h2>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          addBet({ variables: { name: betName } });
+          setBetName("");
+        }}
+      >
+        <input
+          placeholder="Add bet"
+          value={betName}
+          onChange={e => setBetName(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </>
   );
 };
 
