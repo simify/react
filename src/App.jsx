@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import createApolloClient from "./graphql/createApolloClient";
 import SimpleQuery from "./graphql/SimpleQuery";
+import SimpleMutation from "./graphql/SimpleMutation";
 
 const App = () => (
   <ApolloProvider client={createApolloClient()}>
@@ -29,6 +30,7 @@ const App = () => (
           </Route>
         </Switch>
 
+        <SimpleMutation />
         <SimpleQuery />
       </div>
     </Router>

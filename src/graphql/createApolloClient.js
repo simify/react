@@ -1,14 +1,14 @@
 import ApolloClient from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpLink } from "apollo-link-http";
+import { WebSocketLink } from "apollo-link-ws";
 
 const createApolloClient = () => {
   return new ApolloClient({
-    link: new HttpLink({
-      uri: "https://jackpotter-graphql.herokuapp.com/v1/graphql"
-      //   headers: {
-      //     Authorization: `Bearer ${authToken}`
-      //   }
+    link: new WebSocketLink({
+      uri: "wss://jackpotter-graphql.herokuapp.com/v1/graphql",
+      options: {
+        reconnect: true
+      }
     }),
     cache: new InMemoryCache()
   });

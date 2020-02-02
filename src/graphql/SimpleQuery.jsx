@@ -1,20 +1,18 @@
 import React from "react";
 import gql from "graphql-tag";
-import { useQuery } from "@apollo/react-hooks";
+import { useSubscription } from "@apollo/react-hooks";
 
-const GET_ALL_BETS = gql`
-  query allBets {
-    bet {
+const BET_SUBSCRIPTION = gql`
+  subscription getNewBet {
+    bet(order_by: { id: desc }, limit: 10) {
       id
       name
-      start
-      end
     }
   }
 `;
 
 const SimpleQuery = () => {
-  const { loading, error, data } = useQuery(GET_ALL_BETS);
+  const { loading, error, data } = useSubscription(BET_SUBSCRIPTION);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -30,7 +28,7 @@ const SimpleQuery = () => {
       <h2>Bets from GraphQL</h2>
       <ul>
         {data.bet.map(b => (
-          <li>{b.name}</li>
+          <li key={b.id}>{b.name}</li>
         ))}
       </ul>
     </>
