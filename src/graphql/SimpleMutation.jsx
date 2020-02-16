@@ -2,35 +2,34 @@ import React, { useState } from "react";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
 
-const ADD_BET = gql`
-  mutation InsertBet($name: String!) {
-    insert_bet(objects: { name: $name }) {
+const ADD_COURSE = gql`
+  mutation InsertCourse($title: String!) {
+    insert_course(objects: { title: $title }) {
       returning {
-        id
-        name
+        title
       }
     }
   }
 `;
 
 const SimpleMutation = () => {
-  const [addBet] = useMutation(ADD_BET);
-  const [betName, setBetName] = useState("");
+  const [addCourse] = useMutation(ADD_COURSE);
+  const [courseName, setCourseName] = useState("");
 
   return (
     <>
-      <h2>GraphQL demo</h2>
+      <h2>Add Course (GraphQL Mutation)</h2>
       <form
         onSubmit={e => {
           e.preventDefault();
-          addBet({ variables: { name: betName } });
-          setBetName("");
+          addCourse({ variables: { title: courseName } });
+          setCourseName("");
         }}
       >
         <input
-          placeholder="Add bet"
-          value={betName}
-          onChange={e => setBetName(e.target.value)}
+          placeholder="Add course"
+          value={courseName}
+          onChange={e => setCourseName(e.target.value)}
         />
         <button type="submit">Submit</button>
       </form>

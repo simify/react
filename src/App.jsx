@@ -8,9 +8,9 @@ import { Page } from "react-onsenui";
 
 import "onsenui/css/onsenui.css";
 import "onsenui/css/onsen-css-components.css";
-import LoginState from "./login/LoginState";
-import Navigation from "./router/Navigation";
-import Content from "./router/Content";
+// import LoginState from "./login/LoginState";
+// import Navigation from "./router/Navigation";
+// import Content from "./router/Content";
 
 const App = () => {
   return (
@@ -18,13 +18,15 @@ const App = () => {
       <Router>
         <Page>
           <div className="App">
-            <h1>JackPotter</h1>
+            {/* <h1>JackPotter</h1>
             <LoginState />
             <Navigation />
             <Content />
-            <hr />
-            <SimpleMutation />
-            <SimpleQuery />
+            <hr /> */}
+            <div style={{ maxWidth: 600, margin: "40px auto" }}>
+              <SimpleMutation />
+              <SimpleQuery />
+            </div>
           </div>
         </Page>
       </Router>

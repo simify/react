@@ -3,10 +3,10 @@ import gql from "graphql-tag";
 import { useSubscription } from "@apollo/react-hooks";
 
 const BET_SUBSCRIPTION = gql`
-  subscription getNewBet {
-    bet(order_by: { id: desc }, limit: 10) {
+  subscription subscribeLatest5Courses {
+    course(order_by: { id: desc }, limit: 5) {
       id
-      name
+      title
     }
   }
 `;
@@ -25,10 +25,10 @@ const SimpleQuery = () => {
 
   return (
     <>
-      <h2>Bets from GraphQL</h2>
+      <h2>Latest 5 Courses (as Subscription)</h2>
       <ul>
-        {data.bet.map(b => (
-          <li key={b.id}>{b.name}</li>
+        {data.course.map(b => (
+          <li key={b.id}>{b.title}</li>
         ))}
       </ul>
     </>
